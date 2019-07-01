@@ -1,6 +1,6 @@
 import pytest
 from robot import Position
-from robot.exceptions import InvalidCoordinate
+from robot.exceptions import InvalidCoordinate, InvalidDirection
 
 
 def test_valid_position():
@@ -14,7 +14,38 @@ def test_invalid_position():
     with pytest.raises(InvalidCoordinate):
         Position(1.1, 2, 'W')
 
-def test_direction_to_string():
+
+def test_position_direction():
     origin = Position(1, 2)
     assert origin.direction == 0
     assert origin.direction_to_string == "N"
+
+
+def test_direction_assignment():
+    origin = Position(2, 3)
+    assert origin.direction == 0
+
+    origin.direction = 'S'
+    assert origin.direction == 180
+    assert origin.direction_to_string == 'S'
+
+    origin.direction = -90
+    assert origin.direction == -90
+    assert origin.direction_to_string == 'W'
+
+
+def test_invalid_str_direction():
+    with pytest.raises(InvalidDirection):
+        Position(1, 1, 'Q')
+
+
+def test_invalid_int_direction():
+    with pytest.raises(InvalidDirection):
+        Position(1, 3, 110)
+
+
+def test_postion_addition():
+    pos_1 = Position(1, 1, 'S')
+    pos_2 = Position(1, 1, 'S')
+    addition = pos_1 + pos_2
+    assert addition == Position(2, 2, 'S')

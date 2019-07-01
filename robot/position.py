@@ -27,10 +27,12 @@ class Position:
         self.direction = self._direction
 
     def __str__(self):
-        return f"Position(x={self.x}, y={self.y}, direction={self.direction_to_string})"
+        direction = self.direction_to_string
+        return f"Position(x={self.x}, y={self.y}, direction={direction})"
 
     def __repr__(self):
-        return f"Position(x={self.x}, y={self.y}, direction={self.direction_to_string})"
+        direction = self.direction_to_string
+        return f"Position(x={self.x}, y={self.y}, direction={direction})"
 
     def __add__(self, other: Position) -> Position:
         """implement addition method for two position objects in same
@@ -48,13 +50,16 @@ class Position:
 
     @direction.setter
     def direction(self, value: Union[str, int]) -> None:
-
+        """allows to set the direction of the object.
+        param: value: can be a str of int. if string then precaution is taken
+                      to make sure that it is valid"""
         if isinstance(value, str):
             if value not in direction:
-                raise InvalidDirection(
-                    "Subtraction is not possible for two different direction")
+                raise InvalidDirection("Invalid direction passed: {value}")
             self._direction = direction[value] * 90
         elif isinstance(value, int):
+            if value % 90 != 0:
+                raise InvalidDirection("Invalid direction passed: {value}")
             self._direction = value
 
         logging.debug(f"Direction value set to: {self._direction}")
