@@ -1,0 +1,4 @@
+[run]
+include = robot/*
+[html]
+directory = robot_code_coverage
