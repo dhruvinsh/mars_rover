@@ -79,3 +79,31 @@ So rover's origin is `(1, 2, 0)` where x-axis=1, y-axis=2 and direction=0 degree
 if the rover take right turn we will add position 90 degrees to it, else on left turn we will add negative 90 degrees to existing. and for given mover forward command we will add unit component of the same direction. Different direction addition is not implemented by default. See below image for rover's movement for above exampled input data.
 
 ![Rover](assets\rover.png "Rover movement")
+
+# Running Application
+Get a copy of the project, make sure you have git installed and it is in paht, run below command,
+
+```text
+git clone https://github.com/dhruvinsh/mars_rover.git
+```
+
+I am using **pipenv** environment manager. Below command install needed dependency automatically.
+### Dependency
+Run below command from command line from the project directory.
+
+``` text
+pip install pipenv
+pipenv install
+```
+### Running
+Make sure you have pipenv in path and cmd prompt in the same directory as project.
+##### Unittest & Code Coverage
+``` text
+pipenv run pytest --cov=robot -b
+```
+
+##### Run Application
+
+``` text
+pipenv run python run.py
+```
