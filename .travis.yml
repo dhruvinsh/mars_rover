@@ -1,0 +1,20 @@
+language: python
+
+dist: xenial
+
+python:
+  - '3.7'
+
+
+install:
+  - 'pip install pipenv'
+  - 'pipenv install'
+
+branches:
+  only:
+    - master
+
+script: 'pipenv run pytest --cov=robot -v'
+
+after_success:
+  - codecov
