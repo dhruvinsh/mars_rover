@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/dhruvinsh/mars_rover.svg?branch=master)](https://travis-ci.org/dhruvinsh/mars_rover)
+[![codecov](https://codecov.io/gh/dhruvinsh/mars_rover/branch/master/graph/badge.svg)](https://codecov.io/gh/dhruvinsh/mars_rover)
+
+
 # MARS ROVERS 
 Aim of this project is to resolve below task.
 
