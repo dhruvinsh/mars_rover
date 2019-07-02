@@ -39,5 +39,39 @@ Expected Output:
 5 1 E
 ```
 
-# Brainstorming 
-The first line of input is the upper-right coordinates of the plateau, the lower-left coordinates are assumed to be 0,0.
+# Brainstorming
+
+As seen from above task and input data, we can say that, problem revolve around coordinates and angles(directions). Lets take an example of below input data,
+
+``` text
+5 5
+
+1 2 N
+LMLMLMLMM
+```
+
+Mars Rover is, surprisingly on rectangular plateau. The first line of input is the upper-right coordinates of the plateau, the lower-left coordinates are assumed to be 0,0.
+From the first line, we can say that plateau size is 5 x 5 (x axis- 0 to 5 and y axis 0 to 5). Second line is rover's location. So origin for rower is `(1, 2)` and facing north.
+
+We can divide directions in angles with respect to North as below,
+``` text
+                     0 degrees
+                      North
+                        ^
+                        |
+                        |
+                        |
+270 degrees - West <----|----> East - 90 degrees
+                        |
+                        |
+                        |
+                        v
+                      South
+                   180 degrees
+```
+
+So rover's origin is `(1, 2, 0)` where x-axis=1, y-axis=2 and direction=0 degrees.
+
+if the rover take right turn we will add position 90 degrees to it, else on left turn we will add negative 90 degrees to existing. and for given mover forward command we will add unit component of the same direction. Different direction addition is not implemented by default. See below image for rover's movement for above exampled input data.
+
+![Rover](assets\rover.png "Rover movement")
