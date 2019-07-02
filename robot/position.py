@@ -26,13 +26,12 @@ class Position:
             raise InvalidCoordinate("Invalid coordinates passed")
         self.direction = self._direction
 
-    def __str__(self):
+    def __str__(self) -> str:
         direction = self.direction_to_string
         return f"Position(x={self.x}, y={self.y}, direction={direction})"
 
-    def __repr__(self):
-        direction = self.direction_to_string
-        return f"Position(x={self.x}, y={self.y}, direction={direction})"
+    def __repr__(self) -> str:
+        return self.__str__()
 
     def __add__(self, other: Position) -> Position:
         """implement addition method for two position objects in same

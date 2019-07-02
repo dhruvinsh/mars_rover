@@ -61,14 +61,16 @@ class Rover:
         logging.info(f"instruction to process: {instruction}")
         instruction = list(instruction.upper())
         for cmd in instruction:
+            if cmd not in VALID_COMMAND:
+                raise InvalidInstruction(
+                    f"Command: {instruction} is not valid")
+
             if cmd == 'L':
                 self.left_turn()
             elif cmd == 'R':
                 self.right_turn()
             elif cmd == 'M':
                 self.move_forward()
-            else:
-                raise InvalidInstruction(f"Instruction: {cmd} is not valid")
 
     def position_to_string(self) -> None:
         """allows to print rover location and direction in string format, like

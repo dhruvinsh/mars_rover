@@ -49,3 +49,20 @@ def test_postion_addition():
     pos_2 = Position(1, 1, 'S')
     addition = pos_1 + pos_2
     assert addition == Position(2, 2, 'S')
+
+
+def test_invalid_postion_addition():
+    pos_1 = Position(1, 1, 'S')
+    pos_2 = Position(1, 1, 'E')
+    with pytest.raises(InvalidDirection):
+        pos_1 + pos_2
+
+
+def test_str_position(capsys):
+    print(Position(1, 1))
+    captured = capsys.readouterr()
+    assert captured.out == "Position(x=1, y=1, direction=N)\n"
+
+    print(repr(Position(1, 2)))
+    captured = capsys.readouterr()
+    assert captured.out == "Position(x=1, y=2, direction=N)\n"

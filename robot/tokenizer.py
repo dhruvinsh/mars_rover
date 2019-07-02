@@ -34,9 +34,9 @@ def tokenize(data: str):
         raise InvalidInput("invalid input data detected")
 
     for i in range(0, len(data), 2):
-        x, y, direction = data[i].split()
-        instruction = data[i + 1]
         try:
+            x, y, direction = data[i].split()
+            instruction = data[i + 1]
             yield int(x), int(y), direction, instruction
         except ValueError:
             raise InvalidInput("Invalid input data detected")
