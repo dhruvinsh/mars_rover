@@ -78,7 +78,7 @@ So rover's origin is `(1, 2, 0)` where x-axis=1, y-axis=2 and direction=0 degree
 
 if the rover take right turn we will add position 90 degrees to it, else on left turn we will add negative 90 degrees to existing. and for given mover forward command we will add unit component of the same direction. Different direction addition is not implemented by default. See below image for rover's movement for above exampled input data.
 
-![Rover](assets\rover.png "Rover movement")
+![Rover](/assets/rover.png "Rover Movement")
 
 # Running Application
 Get a copy of the project, make sure you have git installed and it is in paht, run below command,
