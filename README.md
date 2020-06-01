@@ -107,3 +107,4 @@ pipenv run pytest --cov=robot -b
 ``` text
 pipenv run python run.py
 ```
+[![Run on Repl.it](https://repl.it/badge/github/dhruvinsh/mars_rover)](https://repl.it/github/dhruvinsh/mars_rover)
